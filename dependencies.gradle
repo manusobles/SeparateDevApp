@@ -1,0 +1,21 @@
+ext {
+    versions = [
+            kotlinVersion           : '1.3.31', // https://kotlinlang.org/
+            androidXAppcompat       : '1.0.2',
+            androidXCoreKtx         : '1.0.2',
+            androidXConstraintLayout: '1.1.3'
+    ]
+
+    deps = [
+            kotlin                  : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlinVersion}",
+            kotlinGradlePlugin      : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlinVersion}",
+
+            androidXAppcompat       : "androidx.appcompat:appcompat:${versions.androidXAppcompat}",
+            androidXCoreKtx         : "androidx.core:core-ktx:${versions.androidXCoreKtx}",
+            androidXConstraintLayout: "androidx.constraintlayout:constraintlayout:${versions.androidXConstraintLayout}"
+    ]
+
+    libs = [
+            ui: project(':uikit')
+    ]
+}

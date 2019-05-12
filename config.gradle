@@ -1,0 +1,17 @@
+ext {
+    buildConfig = [
+            minSdkVersion    : 21,
+            targetSdkVersion : 28,
+            compileSdkVersion: 28,
+            applicationId    : 'com.example.separatedevapp',
+            applicationIdUi  : 'com.example.uiapp',
+
+            version          : [
+                    major: 0,
+                    minor: 1,
+                    patch: 0
+            ]
+    ]
+    buildConfig.versionName = "${buildConfig.version.major}.${buildConfig.version.minor}.${buildConfig.version.patch}"
+    buildConfig.versionCode = buildConfig.version.major * 10000 + buildConfig.version.minor * 100 + buildConfig.version.patch
+}

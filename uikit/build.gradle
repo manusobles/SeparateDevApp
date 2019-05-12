@@ -1,0 +1,37 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion buildConfig.compileSdkVersion
+    defaultConfig {
+        minSdkVersion buildConfig.minSdkVersion
+        targetSdkVersion buildConfig.targetSdkVersion
+        versionCode buildConfig.versionCode
+        versionName buildConfig.versionName
+    }
+
+    buildTypes {
+        release {
+            postprocessing {
+                removeUnusedCode true
+                removeUnusedResources false
+                obfuscate true
+                optimizeCode true
+                proguardFiles getDefaultProguardFile('proguard-defaults.txt'), 'proguard-rules.pro'
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation deps.kotlin
+    implementation deps.androidXAppcompat
+    implementation deps.androidXCoreKtx
+    implementation deps.androidXConstraintLayout
+}
