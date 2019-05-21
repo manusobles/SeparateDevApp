@@ -3,8 +3,9 @@ package com.example.uikit
 import android.content.Context
 import android.util.AttributeSet
 import android.util.Log
-import android.widget.TextView
+import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.uikit.databinding.ViewPersonBinding
 
 class PersonView @JvmOverloads constructor(
     context: Context?,
@@ -12,22 +13,10 @@ class PersonView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
-    init {
-        inflate(context, R.layout.view_person, this)
-    }
+    private val binding = ViewPersonBinding.inflate(LayoutInflater.from(context), this, true)
 
-    private lateinit var firstNameView: TextView
-    private lateinit var lastNameView: TextView
-
-    override fun onFinishInflate() {
-        super.onFinishInflate()
-        firstNameView = findViewById(R.id.first_name_view)
-        lastNameView = findViewById(R.id.last_name_view)
-    }
-
-    fun setData(myData: Person) {
+    fun setData(person: Person) {
         Log.d("XXX", "set data called PersonView")
-        firstNameView.text = myData.firstName
-        lastNameView.text = myData.lastName
+        binding.person = person
     }
 }
